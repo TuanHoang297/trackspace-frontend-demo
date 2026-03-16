@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import Layout from '../components/common/Layout';
 import Map from '../components/common/Map';
+import EmergencyContactBox from '../components/citizen/EmergencyContactBox';
 import api from '../services/api';
 import { API_ENDPOINTS } from '../config/api';
 
@@ -80,6 +81,8 @@ function CitizenDashboard() {
 
   return (
     <Layout title="Yêu cầu cứu hộ của tôi">
+      <EmergencyContactBox />
+      
       <div className="card">
         <button 
           onClick={() => setShowForm(!showForm)} 

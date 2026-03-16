@@ -1,0 +1,115 @@
+.emergency-contact-box {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.emergency-contact-box h3 {
+  margin-bottom: 20px;
+  color: #d32f2f;
+  font-size: 20px;
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid;
+  transition: all 0.3s;
+}
+
+.contact-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.contact-item.emergency {
+  background: #ffebee;
+  border-left-color: #d32f2f;
+}
+
+.contact-item.police {
+  background: #e3f2fd;
+  border-left-color: #1976d2;
+}
+
+.contact-item.fire {
+  background: #fff3e0;
+  border-left-color: #f57c00;
+}
+
+.contact-item.center {
+  background: #f3e5f5;
+  border-left-color: #7b1fa2;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.contact-name {
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+}
+
+.contact-phone {
+  font-size: 18px;
+  font-weight: 700;
+  color: #666;
+}
+
+.btn-call {
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-call:hover {
+  background: #388e3c;
+  transform: scale(1.05);
+}
+
+.emergency-tips {
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff9c4;
+  border-radius: 6px;
+  border-left: 4px solid #fbc02d;
+}
+
+.emergency-tips p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .contact-item {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .btn-call {
+    width: 100%;
+  }
+}
