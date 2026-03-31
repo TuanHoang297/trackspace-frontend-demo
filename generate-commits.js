@@ -109,7 +109,7 @@ features.forEach((feature, index) => {
   try {
     // Git add and commit
     execSync('git add .', { stdio: 'inherit' });
-    execSync(\`git commit -m "feat: implement \${feature} code and mock service"\`, { stdio: 'inherit' });
+    execSync(`git commit -m "feat: implement ${feature} code and mock service"`, { stdio: 'inherit' });
     console.log(`--> Successfully committed ${feature}`);
   } catch (err) {
     console.error(`Failed to commit for ${feature}:`, err.message);
