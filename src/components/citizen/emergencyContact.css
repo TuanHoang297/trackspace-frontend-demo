@@ -1,227 +1,115 @@
-/* ============================================
-   EMERGENCY CONTACT BOX — Citizen Component
-   Vibrant, urgent-feeling contact cards
-   ============================================ */
-
-/* ─── Contact Box Container ─── */
 .emergency-contact-box {
-  background: var(--bg-elevated);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
-  margin-bottom: var(--space-6);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Urgent accent border */
-.emergency-contact-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg,
-    var(--danger-400) 0%,
-    var(--danger-500) 40%,
-    var(--accent-400) 100%
-  );
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
 }
 
 .emergency-contact-box h3 {
-  margin-bottom: var(--space-5);
-  color: var(--danger-600);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+  color: #d32f2f;
+  font-size: 20px;
 }
 
-/* ─── Contact List ─── */
 .contact-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* ─── Individual Contact Item ─── */
 .contact-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: var(--space-4) var(--space-5);
-  border-radius: var(--radius-md);
-  border-left: 4px solid transparent;
-  transition: all var(--transition-base);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Subtle hover glow */
-.contact-item::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity var(--transition-base);
-  pointer-events: none;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid;
+  transition: all 0.3s;
 }
 
 .contact-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateX(5px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.contact-item:hover::after {
-  opacity: 1;
-}
-
-/* Contact type variants */
 .contact-item.emergency {
-  background: linear-gradient(135deg, #fff5f5 0%, #fee2e2 100%);
-  border-left-color: var(--danger-500);
-}
-
-.contact-item.emergency::after {
-  background: linear-gradient(135deg, rgba(212, 20, 20, 0.02) 0%, rgba(212, 20, 20, 0.06) 100%);
+  background: #ffebee;
+  border-left-color: #d32f2f;
 }
 
 .contact-item.police {
-  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-  border-left-color: var(--primary-500);
-}
-
-.contact-item.police::after {
-  background: linear-gradient(135deg, rgba(13, 134, 230, 0.02) 0%, rgba(13, 134, 230, 0.06) 100%);
+  background: #e3f2fd;
+  border-left-color: #1976d2;
 }
 
 .contact-item.fire {
-  background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
-  border-left-color: var(--accent-500);
-}
-
-.contact-item.fire::after {
-  background: linear-gradient(135deg, rgba(230, 126, 0, 0.02) 0%, rgba(230, 126, 0, 0.06) 100%);
+  background: #fff3e0;
+  border-left-color: #f57c00;
 }
 
 .contact-item.center {
-  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
-  border-left-color: #7c3aed;
+  background: #f3e5f5;
+  border-left-color: #7b1fa2;
 }
 
-.contact-item.center::after {
-  background: linear-gradient(135deg, rgba(124, 58, 237, 0.02) 0%, rgba(124, 58, 237, 0.06) 100%);
-}
-
-/* Contact info */
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 5px;
 }
 
 .contact-name {
-  font-weight: var(--font-weight-semibold);
-  font-size: var(--font-size-base);
-  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
 }
 
 .contact-phone {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-secondary);
-  font-family: var(--font-mono);
-  letter-spacing: 0.05em;
+  font-size: 18px;
+  font-weight: 700;
+  color: #666;
 }
 
-/* Call button */
 .btn-call {
-  padding: var(--space-3) var(--space-5);
-  background: linear-gradient(135deg, var(--success-500) 0%, var(--success-600) 100%);
-  color: var(--text-inverse);
+  padding: 10px 20px;
+  background: #4caf50;
+  color: white;
   border: none;
-  border-radius: var(--radius-md);
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-semibold);
+  border-radius: 4px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all var(--transition-fast);
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-call::before {
-  content: '📞';
-  font-size: 0.9em;
+  transition: all 0.3s;
 }
 
 .btn-call:hover {
-  background: linear-gradient(135deg, var(--success-400) 0%, var(--success-500) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(15, 173, 74, 0.35);
+  background: #388e3c;
+  transform: scale(1.05);
 }
 
-.btn-call:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(15, 173, 74, 0.3);
-}
-
-/* ─── Emergency Tips ─── */
 .emergency-tips {
-  margin-top: var(--space-5);
-  padding: var(--space-4) var(--space-5);
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
-  border-radius: var(--radius-md);
-  border-left: 4px solid var(--warning-500);
-  border: 1px solid var(--warning-100);
-  border-left: 4px solid var(--warning-500);
+  margin-top: 20px;
+  padding: 15px;
+  background: #fff9c4;
+  border-radius: 6px;
+  border-left: 4px solid #fbc02d;
 }
 
 .emergency-tips p {
   margin: 0;
-  color: var(--warning-700);
-  font-size: var(--font-size-sm);
-  line-height: var(--line-height-relaxed);
-  font-weight: var(--font-weight-medium);
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
 }
 
-/* ─── Responsive ─── */
 @media (max-width: 768px) {
-  .contact-list {
-    grid-template-columns: 1fr;
-  }
-
-  .contact-item {
-    padding: var(--space-4);
-  }
-}
-
-@media (max-width: 480px) {
-  .emergency-contact-box {
-    padding: var(--space-4);
-  }
-
   .contact-item {
     flex-direction: column;
-    gap: var(--space-3);
+    gap: 10px;
     text-align: center;
-    align-items: stretch;
-  }
-
-  .contact-info {
-    align-items: center;
   }
 
   .btn-call {
     width: 100%;
-    justify-content: center;
   }
 }

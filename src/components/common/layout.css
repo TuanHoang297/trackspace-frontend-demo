@@ -1,209 +1,61 @@
-/* ============================================
-   LAYOUT — Header, Sidebar & Main Content
-   Premium navigation with modern aesthetics
-   ============================================ */
-
-/* ─── Layout Root ─── */
 .layout {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--bg-primary);
 }
 
-/* ─── Header ─── */
 .header {
-  background: linear-gradient(135deg, #0a1e3f 0%, #0d2b55 40%, #0f3060 100%);
-  color: var(--text-inverse);
-  padding: 0;
-  height: var(--header-height);
-  box-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.15),
-    0 4px 12px rgba(0, 0, 0, 0.08);
-  position: sticky;
-  top: 0;
-  z-index: var(--z-sticky);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-/* Subtle glow bar at bottom of header */
-.header::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(13, 134, 230, 0.4) 20%,
-    rgba(13, 134, 230, 0.6) 50%,
-    rgba(13, 134, 230, 0.4) 80%,
-    transparent 100%
-  );
+  background: #1976d2;
+  color: white;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .header-content {
-  max-width: var(--max-width);
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 var(--space-6);
+  padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
 }
 
-/* Logo / Brand */
 .header h1 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-extrabold);
-  letter-spacing: -0.02em;
-  color: var(--text-inverse);
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-  cursor: default;
+  font-size: 24px;
+  font-weight: 600;
 }
 
-.header h1::before {
-  content: '🌊';
-  font-size: 1.5rem;
-}
-
-/* User info section */
 .user-info {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
-}
-
-.user-info > span:first-child {
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  color: rgba(255, 255, 255, 0.9);
+  gap: 15px;
 }
 
 .user-info .badge {
-  background: rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  font-size: var(--font-size-xs);
-  padding: 3px 10px;
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.2);
+  color: white;
 }
 
-.user-info .badge::before {
-  display: none;
-}
-
-/* Logout button */
 .btn-logout {
-  background: rgba(255, 255, 255, 0.08);
-  color: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: var(--space-2) var(--space-4);
-  border-radius: var(--radius-md);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  cursor: pointer;
-  transition: all var(--transition-fast);
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-2);
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
 }
 
 .btn-logout:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  transform: translateY(-1px);
+  background: rgba(255,255,255,0.3);
 }
 
-.btn-logout:active {
-  transform: translateY(0);
-  background: rgba(255, 255, 255, 0.1);
-}
-
-/* ─── Main Content Area ─── */
 .main-content {
   flex: 1;
-  max-width: var(--max-width);
+  max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: var(--space-8) var(--space-6);
-  animation: fade-in-up 0.4s ease-out;
+  padding: 30px 20px;
 }
 
-/* Page Title */
 .page-title {
-  font-size: var(--font-size-2xl);
-  font-weight: var(--font-weight-bold);
-  color: var(--text-primary);
-  margin-bottom: var(--space-8);
-  letter-spacing: -0.02em;
-  position: relative;
-  padding-left: var(--space-4);
-}
-
-.page-title::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 4px;
-  bottom: 4px;
-  width: 4px;
-  border-radius: var(--radius-full);
-  background: linear-gradient(180deg, var(--primary-400), var(--primary-600));
-}
-
-/* ─── Responsive ─── */
-@media (max-width: 768px) {
-  .header {
-    height: 56px;
-  }
-
-  .header-content {
-    padding: 0 var(--space-4);
-  }
-
-  .header h1 {
-    font-size: var(--font-size-md);
-  }
-
-  .header h1::before {
-    font-size: 1.2rem;
-  }
-
-  .user-info {
-    gap: var(--space-2);
-  }
-
-  .user-info > span:first-child {
-    display: none;
-  }
-
-  .main-content {
-    padding: var(--space-5) var(--space-4);
-  }
-
-  .page-title {
-    font-size: var(--font-size-xl);
-    margin-bottom: var(--space-5);
-  }
-}
-
-@media (max-width: 480px) {
-  .header h1::before {
-    display: none;
-  }
-
-  .user-info .badge {
-    display: none;
-  }
-
-  .btn-logout {
-    padding: var(--space-2) var(--space-3);
-    font-size: var(--font-size-xs);
-  }
+  font-size: 28px;
+  margin-bottom: 30px;
+  color: #333;
 }
